@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./ConfirmModal.module.css";
 import authStyles from "../../styles/Auth.module.css";
 import { useRouter } from "next/router";
+import { server } from "../../config";
 
 const ConfirmModal = ({ closeModal, setLoading, email }) => {
   const [code, setCode] = React.useState("");
@@ -10,7 +11,7 @@ const ConfirmModal = ({ closeModal, setLoading, email }) => {
   const router = useRouter();
 
   const confirm = async () => {
-    const data = await fetch(`http://localhost:3000/api/confirm-email`, {
+    const data = await fetch(`${server}/api/confirm-email`, {
       method: "POST",
       body: JSON.stringify({
         code,

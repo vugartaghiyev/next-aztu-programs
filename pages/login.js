@@ -1,6 +1,7 @@
 import styles from "../styles/Auth.module.css";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { server } from "../config";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ const Login = () => {
   };
 
   const loginUser = async () => {
-    const data = await fetch(`http://localhost:3000/api/login`, {
+    const data = await fetch(`${server}/api/login`, {
       method: "POST",
       body: JSON.stringify({
         email,

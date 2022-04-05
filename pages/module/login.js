@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import emailjs from "emailjs-com";
 import ConfirmModal from "../../components/Auth/ConfirmModal";
+import { server } from "../../config";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -30,7 +31,7 @@ const Login = () => {
   };
 
   const loginUser = async () => {
-    const data = await fetch(`http://localhost:3000/api/login-module`, {
+    const data = await fetch(`${server}/api/login-module`, {
       method: "POST",
       body: JSON.stringify({
         email,
