@@ -1,0 +1,14 @@
+.container {
+  padding: 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  padding-left: 20px;
+}

@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "_id": 0,
+      "email": "vugar",
+      "password": "12345"
+    },
+    {
+      "_id": 1,
+      "email": "admin",
+      "password": "admin"
+    }
+  ]
+}

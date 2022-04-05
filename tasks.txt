@@ -1,0 +1,6 @@
+Login system with token
+Firebase realtime database
+Create a home page
+Inside home page: some modules
+Inside module: another login system with email confirmation and token
+Token deadtime: 60 minute
