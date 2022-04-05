@@ -5,8 +5,8 @@
 }
 
 .title {
-  font-size: 2rem;
-  border-bottom: 2px solid black;
+  font-size: 3rem;
+  opacity: 0.5;
 }
 
 .form {

@@ -4,3 +4,10 @@ Create a home page
 Inside home page: some modules
 Inside module: another login system with email confirmation and token
 Token deadtime: 60 minute
+
+added: 
+redux
+only ask password
+some style changing
+created new database with new structure
+publish project

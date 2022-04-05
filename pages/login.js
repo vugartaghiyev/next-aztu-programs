@@ -50,7 +50,7 @@ const Login = () => {
   }, [error]);
 
   return (
-    <div className={styles.auth}>
+    <div className={styles.auth} style={{ paddingTop: "15%" }}>
       <h1 className={styles.title}>Daxil ol</h1>
       <form className={styles.form} onSubmit={(e) => handlerSubmit(e)}>
         <input

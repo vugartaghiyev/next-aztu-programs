@@ -55,9 +55,14 @@ const Header = () => {
               Math.floor(Math.floor(deadTime) % 60)}
           </div>
         )}
-        <div className={styles.logout} onClick={logout}>
-          logout
-        </div>
+        {typeof window !== "undefined" &&
+        localStorage.getItem("first_token") ? (
+          <div className={styles.logout} onClick={logout}>
+            logout
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
