@@ -6,7 +6,6 @@ import ConfirmModal from "../../components/Auth/ConfirmModal";
 import { server } from "../../config";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -15,14 +14,14 @@ const Login = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (localStorage.getItem("accessModule")) {
+    if (localStorage.getItem("second_token")) {
       router.push("/module");
     }
   }, []);
 
   const handlerSubmit = (e) => {
     e.preventDefault();
-    if (password && email) {
+    if (password && localStorage.getItem("email")) {
       setError([]);
       loginUser();
     } else {
@@ -34,7 +33,7 @@ const Login = () => {
     const data = await fetch(`${server}/api/login-module`, {
       method: "POST",
       body: JSON.stringify({
-        email,
+        email: localStorage.getItem("email"),
         password,
       }),
     }).then((res) => res.json());
@@ -51,8 +50,8 @@ const Login = () => {
       "service_3t60x3i",
       "template_g839uk9",
       {
-        to_name: email.split("@")[0],
-        send_to: email,
+        to_name: localStorage.getItem("email").split("@")[0],
+        send_to: localStorage.getItem("email"),
         code: confirmCode,
       },
       "RexvGjk9i6gKzifc7"
@@ -71,13 +70,6 @@ const Login = () => {
     <div className={styles.auth}>
       <h1 className={styles.title}>Daxil ol(Modul)</h1>
       <form className={styles.form} onSubmit={(e) => handlerSubmit(e)}>
-        <input
-          className={styles.input}
-          value={email}
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="İstifadəçi mail"
-        />
         <input
           className={styles.input}
           type="password"
@@ -99,7 +91,7 @@ const Login = () => {
         <ConfirmModal
           closeModal={() => setEmailModal(false)}
           setLoading={() => setLoading(true)}
-          email={email}
+          email={localStorage.getItem("email")}
         />
       )}
     </div>

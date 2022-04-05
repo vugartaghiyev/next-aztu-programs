@@ -29,9 +29,8 @@ const Login = () => {
         password,
       }),
     }).then((res) => res.json());
-    console.log(data);
     if (data.status === 200) {
-      localStorage.setItem("access", data.token);
+      localStorage.setItem("first_token", data.first_token);
       localStorage.setItem("email", data.email);
       setLoading(true);
       setTimeout(() => {

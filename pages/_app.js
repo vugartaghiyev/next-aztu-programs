@@ -7,7 +7,7 @@ const MyApp = ({ Component, pageProps }) => {
   const router = useRouter();
 
   useEffect(() => {
-    if (!localStorage.getItem("access")) router.push("/login");
+    if (!localStorage.getItem("first_token")) router.push("/login");
   }, [router.pathname]);
 
   return (

@@ -1,16 +1,15 @@
-import { getUsers2Data, addConfirmToUser2 } from "../../firebase/db";
+import { getUsersData, addConfirmToUser } from "../../firebase/db";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
     const user = JSON.parse(req.body);
 
-    await getUsers2Data().then((data) => {
-      console.log(data);
+    await getUsersData().then((data) => {
       const [isUser] = data.filter((item) => item.email === user.email);
       if (isUser) {
         if (isUser.password.toString() === user.password.toString()) {
           const confirmCode = generateNumber();
-          addConfirmToUser2(isUser, confirmCode);
+          addConfirmToUser(isUser, confirmCode);
           res.json({
             status: 200,
             message: "success",

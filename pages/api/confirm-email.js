@@ -1,11 +1,11 @@
-import { getUsers2Data, addTokenToUser2 } from "../../firebase/db";
+import { getUsersData, addSecondTokenToUser } from "../../firebase/db";
 import jwt from "jsonwebtoken";
 
 const handler = async (req, res) => {
   if (req.method === "POST") {
     const { email, code } = JSON.parse(req.body);
 
-    await getUsers2Data().then((data) => {
+    await getUsersData().then((data) => {
       const [user] = data.filter((item) => item.email === email);
 
       if (user.confirm.toString() === code.toString()) {
@@ -17,12 +17,12 @@ const handler = async (req, res) => {
           },
           process.env.JWT_SECRET
         );
-        addTokenToUser2(user, token);
+        addSecondTokenToUser(user, token);
         res.json({
           status: 200,
           message: "success",
           email: user.email,
-          token,
+          second_token: token,
         });
       } else {
         res.json({

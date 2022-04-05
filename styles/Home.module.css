@@ -11,4 +11,5 @@
 .sectionTitle {
   font-size: 2rem;
   padding-left: 20px;
+  text-transform: uppercase;
 }

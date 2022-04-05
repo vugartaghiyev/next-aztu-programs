@@ -6,7 +6,7 @@ import styles from "../../styles/Module.module.css";
 const Module = () => {
   const router = useRouter();
   useEffect(() => {
-    if (!localStorage.getItem("accessModule")) router.push("/module/login");
+    if (!localStorage.getItem("second_token")) router.push("/module/login");
   }, []);
 
   return (

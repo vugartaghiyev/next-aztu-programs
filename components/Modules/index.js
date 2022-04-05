@@ -9,43 +9,71 @@ const Modules = () => {
     {
       _id: 0,
       title: "Nəqliyyat və logistika",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      departments: [
+        "Nəqliyyat logistikası və hərəkətin təhlükəsizliyi",
+        "Nəqliyyat texnikası və idarəetmə texnologiyaları",
+      ],
       img: "/images/logistics.png",
     },
     {
       _id: 1,
       title: "Energetika və avtomatika",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      departments: [
+        "Elektrotexnika",
+        "Avtomatika və idarəetmə",
+        "Enerji effektivliyi və yaşıl enerji texnologiyaları",
+        "Mühəndis fizikası və elektronika",
+      ],
       img: "/images/energy.png",
     },
     {
       _id: 2,
       title: "Metallurgiya və materialşünaslıq",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      departments: [
+        "Metallurgiya və materiallar texnologiyası",
+        "Kimya texnologiya, təkrar emal və ekologiya",
+      ],
       img: "/images/metallurgy.png",
     },
     {
       _id: 3,
       title: "Maşınqayırma və robototexnika",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      departments: [
+        "Maşınqayırma texnologiyası",
+        "Mexatronika və maşın dizaynı",
+        "Mexanika",
+      ],
       img: "/images/robotics.png",
     },
     {
       _id: 4,
       title: "İnformasiya və telekommunikasiya texnologiyaları",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      departments: [
+        "Kompüter texnologiyaları və kiber təhlükəsizlik",
+        "Mühəndis riyaziyyatı və süni intellekt",
+        "Radiotexnika və telekommunikasiya",
+      ],
       img: "/images/it.png",
     },
     {
       _id: 5,
       title: "Xüsusi texnika və texnologiya",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      departments: [
+        "Xüsusi texnologiyalar və avadanlıqlar",
+        "Radioelektron və aerokosmik sistemlər",
+        "Xüsusi təyinatlı material və vasitələr",
+      ],
       img: "/images/techniques.png",
     },
     {
       _id: 6,
       title: "İqtisadiyyat və idarəetmə",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      departments: [
+        "Beynəlxalq ticarət, logistika və marketinq",
+        "İqtisadiyyat və statistika",
+        "Xarici dillər",
+        "Humanitar fənlər",
+      ],
       img: "/images/economy.png",
     },
   ]);
@@ -53,15 +81,23 @@ const Modules = () => {
   return (
     <div className={styles.modules}>
       {modules.map((item) => (
-        <Link href="/module" key={item._id}>
-          <a className={styles.item}>
-            <div className={styles.itemImage}>
-              <Image src={item.img} layout="fill" />
-            </div>
-            <h3 className={styles.itemTitle}>{item.title}</h3>
-            <p className={styles.itemDesc}>{item.desc}</p>
-          </a>
-        </Link>
+        <div key={item._id} className={styles.item}>
+          <div className={styles.itemImage}>
+            <Image src={item.img} layout="fill" />
+          </div>
+          <Link href="/module">
+            <a className={styles.itemTitle}>{item.title}</a>
+          </Link>
+          <ol className={styles.itemDepartments}>
+            {item.departments.map((dept) => (
+              <li key={dept}>
+                <Link href="/module">
+                  <a className={styles.itemLink}>{dept}</a>
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </div>
       ))}
     </div>
   );

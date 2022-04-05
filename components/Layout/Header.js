@@ -8,22 +8,22 @@ const Header = () => {
   const [deadTime, setDeadTime] = useState(null);
   const router = useRouter();
   const logout = () => {
-    localStorage.removeItem("access");
+    localStorage.removeItem("first_token");
     localStorage.removeItem("email");
-    localStorage.removeItem("accessModule");
+    localStorage.removeItem("second_token");
     localStorage.removeItem("emailModule");
     router.push("/login");
   };
 
   useEffect(() => {
-    if (localStorage.getItem("accessModule")) {
+    if (localStorage.getItem("second_token")) {
       deadTime && deadTime < 1 && logout();
     }
   }, [router.pathname]);
 
   const calcDeadTime = () => {
-    if (localStorage.getItem("accessModule")) {
-      var decoded = jwt_decode(localStorage.getItem("accessModule"));
+    if (localStorage.getItem("second_token")) {
+      var decoded = jwt_decode(localStorage.getItem("second_token"));
       return decoded.iat - Date.now() / 1000;
     }
     return null;
@@ -37,7 +37,7 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    if (localStorage.getItem("accessModule")) {
+    if (localStorage.getItem("second_token")) {
       deadTime && deadTime < 1 && logout();
     }
   }, [deadTime]);
@@ -45,11 +45,8 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <Link href="/">
-        <a className={styles.logo}>LOGOAZ</a>
+        <a className={styles.logo}>AZTU PROGRAMS</a>
       </Link>
-      {/* <button className={styles.logout} onClick={() => logout()}>
-        logout
-      </button> */}
       <div className={styles.headerRight}>
         {deadTime && (
           <div className={styles.deadTime}>

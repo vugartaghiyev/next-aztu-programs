@@ -1,11 +1,11 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyCydEVlnU0z0qBrjBtuNjFinKEjBvG_x4c",
-  authDomain: "teknopark-426e7.firebaseapp.com",
-  projectId: "teknopark-426e7",
-  storageBucket: "teknopark-426e7.appspot.com",
-  messagingSenderId: "873181195997",
-  appId: "1:873181195997:web:ecb461361d269d1150f534",
-  measurementId: "G-KCKFKH7X8T",
+  apiKey: "AIzaSyAPvelTTjjp2iP9gZcUMVTtuO-okYBAHRQ",
+  authDomain: "aztu-programs.firebaseapp.com",
+  projectId: "aztu-programs",
+  storageBucket: "aztu-programs.appspot.com",
+  messagingSenderId: "554909755148",
+  appId: "1:554909755148:web:381a1047622a93090a8b29",
+  measurementId: "G-X8569C23W8",
 };
 
 export { firebaseConfig };

@@ -19,12 +19,11 @@ const handler = async (req, res) => {
             },
             process.env.JWT_SECRET
           );
-          addTokenToUser(isUser, token);
           res.json({
             status: 200,
             message: "success",
             email: isUser.email,
-            token,
+            first_token: token,
           });
         } else {
           res.json({

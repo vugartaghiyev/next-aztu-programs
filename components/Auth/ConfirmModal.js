@@ -19,8 +19,7 @@ const ConfirmModal = ({ closeModal, setLoading, email }) => {
       }),
     }).then((res) => res.json());
     if (data.status === 200) {
-      localStorage.setItem("accessModule", data.token);
-      localStorage.setItem("emailModule", data.email);
+      localStorage.setItem("second_token", data.second_token);
       setLoading();
       setTimeout(() => {
         router.push("/module");

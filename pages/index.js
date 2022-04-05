@@ -4,7 +4,7 @@ import Modules from "../components/Modules";
 const Home = () => {
   return (
     <div className={styles.container}>
-      <h3 className={styles.sectionTitle}>Kafedralar</h3>
+      <h3 className={styles.sectionTitle}>Fakültələr</h3>
       <Modules />
     </div>
   );
