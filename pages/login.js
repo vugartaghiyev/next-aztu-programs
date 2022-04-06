@@ -50,32 +50,37 @@ const Login = () => {
   }, [error]);
 
   return (
-    <div className={styles.auth} style={{ paddingTop: "15%" }}>
-      <h1 className={styles.title}>Daxil ol</h1>
-      <form className={styles.form} onSubmit={(e) => handlerSubmit(e)}>
-        <input
-          className={styles.input}
-          value={email}
-          placeholder="İstifadəçi mail"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          className={styles.input}
-          type="password"
-          value={password}
-          placeholder="Şifrə"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        {error.length > 0 &&
-          error.map((item, i) => (
-            <p key={i} className={styles.error}>
-              {item}
-            </p>
-          ))}
+    <div className={styles.auth}>
+      <div className={styles.authLeft}>
+        <h1 className={styles.title}>Daxil ol</h1>
+        <form className={styles.form} onSubmit={(e) => handlerSubmit(e)}>
+          <input
+            className={styles.input}
+            value={email}
+            placeholder="İstifadəçi mail"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            className={styles.input}
+            type="password"
+            value={password}
+            placeholder="Şifrə"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {error.length > 0 &&
+            error.map((item, i) => (
+              <p key={i} className={styles.error}>
+                {item}
+              </p>
+            ))}
 
-        <button className={styles.button}>Daxil ol</button>
-      </form>
-      {loading && <Loading />}
+          <button className={styles.button}>Daxil ol</button>
+        </form>
+        {loading && <Loading />}
+      </div>
+      <div className={styles.authRight}>
+        <img src="/images/login-bg.png" alt="login-bg" />
+      </div>
     </div>
   );
 };

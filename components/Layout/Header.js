@@ -54,7 +54,12 @@ const Header = () => {
   return (
     <div className={styles.header}>
       <Link href="/">
-        <a className={styles.logo}>AZTU PROGRAMS</a>
+        <a className={styles.logo}>
+          <img src="/images/aztu-logo.png" alt="logo" />
+          <p className={styles.logoText}>
+            AZTU <br /> <span>programs</span>
+          </p>
+        </a>
       </Link>
       <div className={styles.headerRight}>
         {deadTime && (
@@ -66,7 +71,7 @@ const Header = () => {
         )}
         {isLoggedIn && (
           <div className={styles.logout} onClick={logout}>
-            logout
+            <img src="https://img.icons8.com/external-sbts2018-mixed-sbts2018/20/ffffff/external-logout-social-media-basic-1-sbts2018-mixed-sbts2018.png" />
           </div>
         )}
       </div>

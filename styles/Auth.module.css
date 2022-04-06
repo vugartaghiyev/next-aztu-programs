@@ -1,18 +1,48 @@
 .auth {
-  max-width: 500px;
+  max-width: 1200px;
   margin: 0 auto;
-  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.authLeft {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: white;
+}
+
+.authRight {
+  flex: 1;
+  height: 100%;
+  display: flex;
+}
+
+.authRight img {
+  width: 100%;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 768px) {
+  .authRight {
+    display: none !important;
+  }
 }
 
 .title {
-  font-size: 3rem;
-  opacity: 0.5;
+  font-size: 5rem;
+  opacity: 0.2;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 10px;
+  width: 350px;
 }
 
 .label {
@@ -38,7 +68,6 @@
 
 .button {
   margin-top: 30px;
-  padding: 15px;
   border: none;
   background: var(--mainColor);
   color: white;
@@ -47,6 +76,7 @@
   cursor: pointer;
   transition: 0.1s;
   width: 200px;
+  height: 47px;
 }
 
 .button:hover {
