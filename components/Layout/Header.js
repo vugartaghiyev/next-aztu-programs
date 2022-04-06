@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode";
 
 const Header = () => {
   const [deadTime, setDeadTime] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const router = useRouter();
   const logout = () => {
     localStorage.removeItem("first_token");
@@ -42,6 +43,14 @@ const Header = () => {
     }
   }, [deadTime]);
 
+  useEffect(() => {
+    if (localStorage.getItem("first_token")) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, [router.pathname]);
+
   return (
     <div className={styles.header}>
       <Link href="/">
@@ -55,13 +64,10 @@ const Header = () => {
               Math.floor(Math.floor(deadTime) % 60)}
           </div>
         )}
-        {typeof window !== "undefined" &&
-        localStorage.getItem("first_token") ? (
+        {isLoggedIn && (
           <div className={styles.logout} onClick={logout}>
             logout
           </div>
-        ) : (
-          ""
         )}
       </div>
     </div>

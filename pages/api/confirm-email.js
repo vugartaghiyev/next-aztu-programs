@@ -13,7 +13,7 @@ const handler = async (req, res) => {
           {
             _id: user._id,
             email: user.email,
-            iat: new Date().getTime() / 1000 + 30,
+            iat: new Date().getTime() / 1000 + 60 * 60,
           },
           process.env.JWT_SECRET
         );

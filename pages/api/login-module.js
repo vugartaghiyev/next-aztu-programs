@@ -19,13 +19,13 @@ const handler = async (req, res) => {
         } else {
           res.json({
             status: 401,
-            message: "Email və ya şifrə yanlışdır",
+            message: "Şifrə yanlışdır",
           });
         }
       } else
         res.json({
-          status: "401",
-          message: "Email və ya şifrə yanlışdır",
+          status: 401,
+          message: "Şifrə yanlışdır",
         });
     });
   }
