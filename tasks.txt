@@ -11,3 +11,6 @@ only ask password
 some style changing
 created new database with new structure
 publish project
+
+change input's background color
+change home head side and add a slider there

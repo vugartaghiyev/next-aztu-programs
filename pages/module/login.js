@@ -68,32 +68,37 @@ const Login = () => {
 
   return (
     <div className={styles.auth}>
-      <h1 className={styles.title}>Daxil ol(Modul)</h1>
-      <form className={styles.form} onSubmit={(e) => handlerSubmit(e)}>
-        <input
-          className={styles.input}
-          type="password"
-          value={password}
-          placeholder="Şifrə"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        {error.length > 0 &&
-          error.map((item, i) => (
-            <p key={i} className={styles.error}>
-              {item}
-            </p>
-          ))}
+      <div className={styles.authLeft}>
+        <h1 className={styles.title}>Şifrəniz</h1>
+        <form className={styles.form} onSubmit={(e) => handlerSubmit(e)}>
+          <input
+            className={styles.input}
+            type="password"
+            value={password}
+            placeholder="Şifrə"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {error.length > 0 &&
+            error.map((item, i) => (
+              <p key={i} className={styles.error}>
+                {item}
+              </p>
+            ))}
 
-        <button className={styles.button}>Daxil ol</button>
-      </form>
-      {loading && <Loading />}
-      {emailModal && (
-        <ConfirmModal
-          closeModal={() => setEmailModal(false)}
-          setLoading={() => setLoading(true)}
-          email={localStorage.getItem("email")}
-        />
-      )}
+          <button className={styles.button}>Daxil ol</button>
+        </form>
+        {loading && <Loading />}
+        {emailModal && (
+          <ConfirmModal
+            closeModal={() => setEmailModal(false)}
+            setLoading={() => setLoading(true)}
+            email={localStorage.getItem("email")}
+          />
+        )}
+      </div>
+      <div className={styles.authRight}>
+        <img src="/images/login-bg.png" alt="login-bg" />
+      </div>
     </div>
   );
 };
